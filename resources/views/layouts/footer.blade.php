@@ -16,16 +16,16 @@
                         Links
                     </h6>
                     <p>
-                        <a href="#!" class="text-reset">Home</a>
+                        <a href="#home" class="text-reset">Home</a>
                     </p>
                     <p>
-                        <a href="#!" class="text-reset">Features</a>
+                        <a href="#features" class="text-reset">Features</a>
                     </p>
                     <p>
-                        <a href="#!" class="text-reset">Regolamento</a>
+                        <a href="#regolamento" class="text-reset">Regolamento</a>
                     </p>
                     <p>
-                        <a href="#!" class="text-reset">Contatti</a>
+                        <a href="#contatti" class="text-reset">Contatti</a>
                     </p>
                 </div>
 

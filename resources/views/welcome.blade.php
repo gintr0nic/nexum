@@ -4,7 +4,7 @@
 
 @include('layouts.header')
 
-<div class="container col-8 px-4 py-5">
+<div class="container col-8 px-4 py-5" id="home">
     <div class="row flex-row align-items-center g-5 py-5">
         <div class="col-6">
             <h1 class="display-5 fw-bold lh-1 mb-3">Benvenuto su Nexum!</h1>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-6">
-            <img src="{{ asset('assets/bootstrap-themes.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+            <img src="{{ asset('assets/social.png') }}" class="d-block mx-lg-auto img-fluid"
                 loading="lazy" width="700" height="500">
         </div>
     </div>
