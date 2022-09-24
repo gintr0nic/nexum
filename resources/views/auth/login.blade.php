@@ -12,19 +12,33 @@
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <h1 class="display-5 fw-bold lh-1 mb-3">Fai il login</h1>
-        <form>
-          <div class="form-outline mb-4">
-            <input type="username" id="formUsername" class="form-control form-control-lg" />
-            <label class="form-label" for="formUsername">Nome utente</label>
+        {{ Form::open(array('route' => 'login')) }}
+          <div class="form-outline mb-2">
+              {{ Form::label('username', 'Username', ['class' => 'form-label', 'for' => 'formUsername']) }}<br>
+              {{ Form::text('username', '', ['class' => 'form-control form-control-lg', 'id' => 'formUsername']) }}
+              @if ($errors->first('username'))
+              <ul class="errors">
+                  @foreach ($errors->get('username') as $message)
+                  <li>{{ $message }}</li>
+                  @endforeach
+              </ul>
+              @endif
           </div>
 
-          <div class="form-outline mb-4">
-            <input type="password" id="formPassword" class="form-control form-control-lg" />
-            <label class="form-label" for="formPassword">Password</label>
+          <div class="form-outline mb-2">
+              {{ Form::label('password', 'Password', ['class' => 'form-label', 'for' => 'formPassword']) }}<br>
+              {{ Form::password('password', ['class' => 'form-control form-control-lg', 'id' => 'formPassword']) }}
+              @if ($errors->first('password'))
+              <ul class="errors">
+                  @foreach ($errors->get('password') as $message)
+                  <li>{{ $message }}</li>
+                  @endforeach
+              </ul>
+              @endif
           </div>
 
-          <button type="submit" class="btn btn-dark btn-lg">Login</button>
-        </form>
+          {{ Form::submit('Login', ['class' => 'btn btn-dark btn-lg']) }}
+        {{ Form::close() }}
       </div>
     </div>
   </div>

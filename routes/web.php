@@ -19,3 +19,10 @@ Route::get('/', function () {
 //Rotte per il login
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
+
+//Rotta per il logout
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+//Rotte per la registrazione
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');

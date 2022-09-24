@@ -18,7 +18,7 @@
         <div class="d-flex">
             <ul class="navbar-nav">
                 <button type="button" onclick="location.href='{{ route('login') }}'" class="btn btn-outline-light mx-1">Login</button>
-                <button type="button" class="btn btn-light mx-1">Registrati</button>
+                <button type="button" onclick="location.href='{{ route('register') }}'" class="btn btn-light mx-1">Registrati</button>
             </ul>
         </div>
     </div>
