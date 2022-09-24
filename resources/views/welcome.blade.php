@@ -9,9 +9,9 @@
         <div class="col-6">
             <h1 class="display-5 fw-bold lh-1 mb-3">Benvenuto su Nexum!</h1>
             <p class="lead">Nexum è un servizio di microblogging che ti permette di creare un blog personale su un
-                tema a tua scelta e condividerlo con i tuoi amici</p>
+                tema a tua scelta e di condividerlo con i tuoi amici</p>
             <div class="d-grid gap-2 d-flex justify-content-start">
-                <button type="button" class="btn btn-outline-dark btn-lg px-4 me-2">Login</button>
+                <button type="button" onclick="location.href='{{ route('login') }}'" class="btn btn-outline-dark btn-lg px-4 me-2">Login</button>
                 <button type="button" class="btn btn-dark btn-lg px-4">Registrati</button>
             </div>
         </div>
@@ -43,7 +43,7 @@
                 </svg>
             </div>
             <h3 class="fs-2">Amici</h3>
-            <p>Puoi deciderti di renderti visibile a tutti o solo al gruppo dei tuoi a amici, inoltre puoi anche
+            <p>Puoi deciderti di renderti visibile a tutti o solo al gruppo dei tuoi amici, inoltre puoi anche
                 decidere chi può accedere ai tuoi blog.</p>
         </div>
         <div class="feature col">

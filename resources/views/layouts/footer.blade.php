@@ -16,16 +16,16 @@
                         Links
                     </h6>
                     <p>
-                        <a href="#home" class="text-reset">Home</a>
+                        <a href="{{ route('home') }}" class="text-reset">Home</a>
                     </p>
                     <p>
-                        <a href="#features" class="text-reset">Features</a>
+                        <a href="{{ route('home') }}#features" class="text-reset">Features</a>
                     </p>
                     <p>
-                        <a href="#regolamento" class="text-reset">Regolamento</a>
+                        <a href="{{ route('home') }}#regolamento" class="text-reset">Regolamento</a>
                     </p>
                     <p>
-                        <a href="#contatti" class="text-reset">Contatti</a>
+                        <a href="{{ route('home') }}#contatti" class="text-reset">Contatti</a>
                     </p>
                 </div>
 

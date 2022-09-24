@@ -11,6 +11,11 @@
 |
 */
 
+//Rotta per la home
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+//Rotte per il login
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
