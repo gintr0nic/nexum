@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="assets/logo.svg" class="d-inline-block align-top" width="30" height="30">
+            <img src="{{ asset('assets/logo.svg') }}" class="d-inline-block align-top" width="30" height="30">
             Nexum
         </a>
         <ul class="navbar-nav me-auto">

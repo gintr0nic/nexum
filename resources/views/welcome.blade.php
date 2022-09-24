@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-6">
-            <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+            <img src="{{ asset('assets/bootstrap-themes.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
                 loading="lazy" width="700" height="500">
         </div>
     </div>
