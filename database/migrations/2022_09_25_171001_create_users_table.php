@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->enum('sex', array('male','female'));
             $table->date('birthdate');
             $table->string('address');
+            $table->string('city');
             $table->enum('role', array('user','moderator', 'admin'))->default('user');
             $table->boolean('private')->default(false);
             $table->string('friends')->default('');

@@ -63,6 +63,18 @@
             </div>
 
             <div class="form-outline mb-2">
+                {{ Form::label('city', 'Città', ['class' => 'form-label', 'for' => 'formCity']) }}<br>
+                {{ Form::text('city', '', ['class' => 'form-control form-control-lg', 'id' => 'formCity']) }}
+                @if ($errors->first('city'))
+                <ul class="errors">
+                    @foreach ($errors->get('city') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
+            </div>
+
+            <div class="form-outline mb-2">
                 {{ Form::label('address', 'Indirizzo di residenza', ['class' => 'form-label', 'for' => 'formAddress']) }}<br>
                 {{ Form::text('address', '', ['class' => 'form-control form-control-lg', 'id' => 'formAddress']) }}
                 @if ($errors->first('address'))
@@ -111,8 +123,8 @@
             </div>
 
             <div class="form-outline mb-2">
-                {{ Form::label('repeatPassword', 'Ripeti password', ['class' => 'form-label', 'for' => 'formRepeatPassword']) }}<br>
-                {{ Form::password('repeatPassword', ['class' => 'form-control form-control-lg', 'id' => 'formRepeatPassword']) }}
+                {{ Form::label('password-confirm', 'Ripeti password', ['class' => 'form-label', 'for' => 'password-confirm']) }}<br>
+                {{ Form::password('password_confirmation', ['class' => 'form-control form-control-lg', 'id' => 'password-confirm']) }}
             </div>
 
             {{ Form::submit('Registrati', ['class' => 'btn btn-dark btn-lg']) }}
