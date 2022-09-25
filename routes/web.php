@@ -26,3 +26,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 //Rotte per la registrazione
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+
+// Rotte per il profilo
+Route::get('user/{username}', 'UserController@index')->name('user');

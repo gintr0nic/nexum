@@ -30,7 +30,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected function redirectTo() {
-        return '/' . auth()->user()->username;
+        return '/user/' . auth()->user()->username;
     }
 
     /**

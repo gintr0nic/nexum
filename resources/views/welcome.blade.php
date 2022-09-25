@@ -17,7 +17,7 @@
                 @endguest
 
                 @auth
-                    <button type="button" onclick="location.href='#'" class="btn btn-outline-dark btn-lg px-4 me-2">Vai al tuo profilo</button>
+                    <button type="button" onclick="location.href='{{ route('user', ['username' => Auth::user()->username ]) }}'" class="btn btn-outline-dark btn-lg px-4 me-2">Vai al tuo profilo</button>
                 @endauth
             </div>
         </div>

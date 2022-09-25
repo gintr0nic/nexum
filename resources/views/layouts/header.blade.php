@@ -4,6 +4,7 @@
             <img src="{{ asset('assets/logo.svg') }}" class="d-inline-block align-top" width="30" height="30">
             Nexum
         </a>
+
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('home') }}#features">Features</a>
@@ -15,6 +16,7 @@
                 <a class="nav-link" href="{{ route('home') }}#contatti">Contatti</a>
             </li>
         </ul>
+        
         <div class="d-flex">
             <ul class="navbar-nav">
                 @guest
