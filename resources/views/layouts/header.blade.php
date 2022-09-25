@@ -17,8 +17,14 @@
         </ul>
         <div class="d-flex">
             <ul class="navbar-nav">
-                <button type="button" onclick="location.href='{{ route('login') }}'" class="btn btn-outline-light mx-1">Login</button>
-                <button type="button" onclick="location.href='{{ route('register') }}'" class="btn btn-light mx-1">Registrati</button>
+                @guest
+                    <button type="button" onclick="location.href='{{ route('login') }}'" class="btn btn-outline-light mx-1">Login</button>
+                    <button type="button" onclick="location.href='{{ route('register') }}'" class="btn btn-light mx-1">Registrati</button>
+                @endguest
+
+                @auth
+                    <button type="button" onclick="location.href='{{ route('logout') }}'" class="btn btn-outline-light mx-1">Logout</button>
+                @endauth
             </ul>
         </div>
     </div>
