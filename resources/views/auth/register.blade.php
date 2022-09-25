@@ -39,7 +39,7 @@
             </div>
 
             <div class="form-outline mb-2">
-                {{ Form::label('sex', 'Sesso', ['class' => 'form-label', 'for' => 'formName']) }}<br>
+                {{ Form::label('sex', 'Sesso', ['class' => 'form-label', 'for' => 'formSex']) }}<br>
                 {{ Form::select('sex', ['male' => 'Uomo', 'female' => 'Donna'], 'Uomo' ,['class' => 'form-select form-select-lg', 'id' => 'formSex']) }}
                 @if ($errors->first('sex'))
                 <ul class="errors">
