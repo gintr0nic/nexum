@@ -10,6 +10,7 @@
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                 <h5>{{ $user->username }}</h5>
+                <div class="mt-5 text-center"><button onclick="location.href='{{ route('edit') }}'" class="btn btn-dark profile-button" type="button">Modifica profilo</button></div>
             </div>
         </div>
         <div class="col-5 border-right">
@@ -35,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-4">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Biografia</h4>

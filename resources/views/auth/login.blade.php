@@ -14,7 +14,7 @@
         <h1 class="display-5 fw-bold lh-1 mb-3">Fai il login</h1>
         {{ Form::open(array('route' => 'login')) }}
           <div class="form-outline mb-2">
-              {{ Form::label('username', 'Username', ['class' => 'form-label', 'for' => 'formUsername']) }}<br>
+              {{ Form::label('username', 'Username', ['class' => 'form-label', 'for' => 'formUsername']) }}
               {{ Form::text('username', '', ['class' => 'form-control form-control-lg', 'id' => 'formUsername']) }}
               @if ($errors->first('username'))
               <ul class="errors">
@@ -26,7 +26,7 @@
           </div>
 
           <div class="form-outline mb-2">
-              {{ Form::label('password', 'Password', ['class' => 'form-label', 'for' => 'formPassword']) }}<br>
+              {{ Form::label('password', 'Password', ['class' => 'form-label', 'for' => 'formPassword']) }}
               {{ Form::password('password', ['class' => 'form-control form-control-lg', 'id' => 'formPassword']) }}
               @if ($errors->first('password'))
               <ul class="errors">

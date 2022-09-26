@@ -20,4 +20,22 @@ class UserController extends Controller {
 
         return view('user', ['user' => $user]);
     }
+
+    public function showEditForm() {
+        return view('edit');
+    }
+
+    public function edit(Request $request) {
+        $user = auth()->user();
+
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
+        $user->sex = $request->input('sex');
+        $user->birthdate = $request->input('birthdate');
+        $user->city = $request->input('city');
+        $user->address = $request->input('address');
+        $user->bio = $request->input('bio');
+
+        $user->save();
+    }
 }

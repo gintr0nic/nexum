@@ -29,3 +29,5 @@ Route::post('register', 'Auth\RegisterController@register');
 
 // Rotte per il profilo
 Route::get('user/{username}', 'UserController@index')->name('user');
+Route::get('edit', 'UserController@showEditForm')->name('edit');
+Route::post('edit', 'UserController@edit');
