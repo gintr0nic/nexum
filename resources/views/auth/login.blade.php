@@ -7,10 +7,10 @@
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
-      <div class="col-md-8 col-lg-7 col-xl-6">
+      <div class="col-8 col-lg-7 col-xl-6">
         <img src="{{ asset('assets/login.png') }}" class="img-fluid">
       </div>
-      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+      <div class="col-7 col-lg-5 col-xl-5 offset-xl-1">
         <h1 class="display-5 fw-bold lh-1 mb-3">Fai il login</h1>
         {{ Form::open(array('route' => 'login')) }}
           <div class="form-outline mb-2">
