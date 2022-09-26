@@ -30,7 +30,7 @@
                         <h5>Donna</h5>
                     @endif
                     </div>
-                    <div class="col-12 py-1"><label class="labels">Data di nascita</label><h5>{{ $user->birthdate }}</h5></div>
+                    <div class="col-12 py-1"><label class="labels">Data di nascita</label><h5>{{ $user->getBirthdate() }}</h5></div>
                     <div class="col-12 py-1"><label class="labels">Città</label><h5>{{ $user->city }}</h5></div>
                     <div class="col-12 py-1"><label class="labels">Indirizzo</label><h5>{{ $user->address }}</h5></div>
                 </div>
