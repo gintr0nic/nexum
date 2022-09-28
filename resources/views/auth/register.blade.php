@@ -20,7 +20,12 @@
                 @if ($errors->first('name'))
                 <ul class="errors">
                     @foreach ($errors->get('name') as $message)
-                    <li>{{ $message }}</li>
+                    <div class="p-2">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <div>{{ $message }}</div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    </div>
                     @endforeach
                 </ul>
                 @endif
@@ -32,7 +37,12 @@
                 @if ($errors->first('surname'))
                 <ul class="errors">
                     @foreach ($errors->get('surname') as $message)
-                    <li>{{ $message }}</li>
+                    <div class="p-2">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <div>{{ $message }}</div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    </div>
                     @endforeach
                 </ul>
                 @endif

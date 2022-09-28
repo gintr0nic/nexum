@@ -18,9 +18,14 @@
               {{ Form::text('username', '', ['class' => 'form-control form-control-lg', 'id' => 'formUsername']) }}
               @if ($errors->first('username'))
               <ul class="errors">
-                  @foreach ($errors->get('username') as $message)
-                  <li>{{ $message }}</li>
-                  @endforeach
+                @foreach ($errors->get('username') as $message)
+                <div class="p-2">
+                  <div class="alert alert-danger alert-dismissible" role="alert">
+                      <div>{{ $message }}</div>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                  </div>
+                </div>
+                @endforeach
               </ul>
               @endif
           </div>
@@ -31,7 +36,12 @@
               @if ($errors->first('password'))
               <ul class="errors">
                   @foreach ($errors->get('password') as $message)
-                  <li>{{ $message }}</li>
+                  <div class="p-2">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div>{{ $message }}</div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                  </div>
                   @endforeach
               </ul>
               @endif
