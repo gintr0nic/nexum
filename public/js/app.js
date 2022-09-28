@@ -1,3 +1,18 @@
+function newPost() {
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: $('#buttonPost').attr('url'),
+        type: 'POST',
+        dataType: 'json',
+        data: $("#formPost").serialize(),
+        statusCode: {
+            200: function (response) {
+                location.reload()
+            },
+        }
+    });
+}
+
 function editProfile() {
     $.ajax({
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},

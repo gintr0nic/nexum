@@ -8,14 +8,20 @@
     <div class="col-8">
         <h1>{{ $blog->name }}</h3>
         <h3>{{ $blog->topic }}</h3>
-
-        <ul>
-
-        </ul>
     </div>
 
     <div class="row">
         <div class="col-8">
+            <div class="card m-2">
+                <div class="card-body">
+                    {{ Form::open(array('id' => 'formPost')) }}
+                        {{ Form::label('text', 'Scrivi un nuovo post:', ['class' => 'form-label h5', 'for' => 'formPostBody']) }}
+                        {{ Form::textarea('text', '', ['class' => 'form-control', 'id' => 'formPostBody', 'rows' => 3]) }}
+                        <button id="buttonPost" url="{{ route('post', ['blogname' => $blog->blogname ]) }}" class="btn btn-dark btn-lg my-3" type="button" onClick="newPost()">Invia</button>
+                    {{ Form::close() }}
+                </div>
+            </div>
+
             @foreach ($blog->getPosts() as $post)
                 <div class="card m-2">
                     <div class="card-body">

@@ -21,4 +21,12 @@ class BlogController extends Controller {
 
         return view('blog', ['blog' => $blog]);
     }
+
+    public function post(Request $request, $blogname) {
+        Post::create([
+            'blog' => $blogname,
+            'author' => auth()->user()->username,
+            'text' => $request->input('text'),
+        ]);
+    }
 }

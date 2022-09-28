@@ -11,7 +11,7 @@ class Blog extends Model
     protected $guarded = [];
 
     public function getPosts() {
-        $posts = Post::where('blog', $this->blogname)->get();
+        $posts = Post::where('blog', $this->blogname)->latest()->get();
 
         return $posts;
     }

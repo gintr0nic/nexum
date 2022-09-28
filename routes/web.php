@@ -34,3 +34,4 @@ Route::post('edit', 'UserController@edit');
 
 //Rotte per il blog
 Route::get('blog/{blogname}', 'BlogController@index')->name('blog');
+Route::post('post/{blogname}', 'BlogController@post')->name('post');
