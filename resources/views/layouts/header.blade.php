@@ -6,15 +6,29 @@
         </a>
 
         <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}#features">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}#regolamento">Regolamento</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}#contatti">Contatti</a>
-            </li>
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#regolamento">Regolamento</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#contatti">Contatti</a>
+                </li>
+            @endguest
+
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#features">Profilo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#contatti">Messaggi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}#regolamento">Crea un nuovo blog</a>
+                </li>
+            @endauth
         </ul>
         
         <div class="d-flex">

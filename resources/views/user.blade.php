@@ -50,7 +50,7 @@
 <hr/>
 
 <div class="container rounded bg-white mt-5 mb-5" id="blogs">
-    <div class="col-12">
+    <div class="col-8">
         @if (Auth::user()->username == $user->username)
             <h3>Lista dei tuoi blog</h3>
         @else
@@ -59,7 +59,7 @@
 
         <ul>
             @foreach ($user->getBlogs() as $blog)
-                <li>{{ $blog->name }}</li>
+                <li><a href="{{ route('blog', ['blogname' => $blog->blogname ]) }}">{{ $blog->name }}</a></li>
             @endforeach
         </ul>
     </div>

@@ -27,7 +27,10 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-// Rotte per il profilo
+//Rotte per il profilo
 Route::get('user/{username}', 'UserController@index')->name('user');
 Route::get('edit', 'UserController@showEditForm')->name('edit');
 Route::post('edit', 'UserController@edit');
+
+//Rotte per il blog
+Route::get('blog/{blogname}', 'BlogController@index')->name('blog');
