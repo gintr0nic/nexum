@@ -54,6 +54,15 @@
                     {{ Form::textarea('bio', Auth::user()->bio, ['class' => 'form-control', 'id' => 'formBio', 'rows' => 3]) }}
                 </div>
             </div>
+            <div class="p-3 py-5">
+                <div class="col-12 py-1">
+                    <div class="form-check form-switch">
+                        {{ Form::label('private', 'Profilo privato', ['class' => 'form-check-label', 'for' => 'privateSwitch']) }}
+                        {{ Form::checkbox('private', 'true', Auth::user()->private, ['class' => 'form-check-input', 'role' => 'switch', 'id' => 'privateSwitch']) }}
+                    </div>
+                    <p>Questo renderà il tuo profilo visibile solo ai tuo amici</p>
+                </div>
+            </div>
         </div>
         <div class="mt-5 text-center">
             <button id="buttonEdit" url="{{ route('edit') }}" class="btn btn-dark" type="button" onClick="editProfile()">Salva profilo</button>

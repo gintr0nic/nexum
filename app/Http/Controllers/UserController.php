@@ -36,6 +36,11 @@ class UserController extends Controller {
         $user->address = $request->input('address');
         $user->bio = $request->input('bio');
 
+        if($request->input('private') == null)
+            $user->private = false;
+        else
+            $user->private = true;
+
         $user->save();
     }
 }
