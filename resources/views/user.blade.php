@@ -47,6 +47,24 @@
     </div>
 </div>
 
+<hr/>
+
+<div class="container rounded bg-white mt-5 mb-5" id="blogs">
+    <div class="col-12">
+        @if (Auth::user()->username == $user->username)
+            <h3>Lista dei tuoi blog</h3>
+        @else
+            <h3>Lista dei blog di {{ $user->name }} {{ $user->surname }}</h3>
+        @endif
+
+        <ul>
+            @foreach ($user->getBlogs() as $blog)
+                <li>{{ $blog->name }}</li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+
 @include('layouts.footer')
 
 @endsection
