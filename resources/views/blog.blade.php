@@ -17,7 +17,7 @@
                     {{ Form::open(array('id' => 'formPost')) }}
                         {{ Form::label('text', 'Scrivi un nuovo post:', ['class' => 'form-label h5', 'for' => 'formPostBody']) }}
                         {{ Form::textarea('text', '', ['class' => 'form-control', 'id' => 'formPostBody', 'rows' => 3]) }}
-                        <button id="buttonPost" url="{{ route('post', ['blogname' => $blog->blogname ]) }}" class="btn btn-dark btn-lg my-3" type="button" onClick="newPost()">Invia</button>
+                        <button id="buttonPost" onClick="newPost()" url="{{ route('newPost', ['blogname' => $blog->blogname ]) }}" class="btn btn-dark btn-lg my-3" type="button">Invia</button>
                     {{ Form::close() }}
                 </div>
             </div>
@@ -30,10 +30,13 @@
                         <p class="card-text">{{ $post->text }}</p>
 
                         @can('editPost', $post)
-                            <p>Modifica post</p>
+                            <button id="buttonEditPost" type="button" class="btn btn-outline-dark">Modifica</button>
+                            <button id="buttonDeletePost" onClick="deletePost()" url="{{ route('deletePost', ['blogname' => $blog->blogname, 'postid' => $post->id ]) }}" type="button" class="btn btn-dark">Elimina</button>
                         @endcan
                     </div>
                 </div>
+
+                <div class="p-2" id="alertPlaceholder"></div>
             @endforeach
         </div>
         <div class="col-4">

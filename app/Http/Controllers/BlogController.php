@@ -22,11 +22,15 @@ class BlogController extends Controller {
         return view('blog', ['blog' => $blog]);
     }
 
-    public function post(Request $request, $blogname) {
+    public function newPost(Request $request, $blogname) {
         Post::create([
             'blog' => $blogname,
             'author' => auth()->user()->username,
             'text' => $request->input('text'),
         ]);
+    }
+
+    public function deletePost(Request $request, $blogname, $postid) {
+        Post::where('id', $postid)->first()->delete();
     }
 }

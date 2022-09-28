@@ -24,6 +24,19 @@ class DatabaseSeeder extends Seeder
             'friends' => '', 
             'bio' => 'Ciao sono Gianmatteo. Questa è la mia biografia.', 
             'password' => '$2y$10$fNsWl0GTIUolV68.5BSIr.6K1NFw5Nm/0nf8stRwAN8pJKCbIojdC'],
+
+            ['id' => 2, 'username' => 'giulia', 
+            'name' => 'Giulia', 
+            'surname' => 'Rossi',
+            'sex' => 'female',
+            'address' => 'Via dei Marsi 59',
+            'city' => 'San Nicandro Garganico',
+            'birthdate' => '2000-03-06',
+            'role' => 'user', 
+            'private' => false, 
+            'friends' => '', 
+            'bio' => 'Ciao sono Giulia. Questa è la mia biografia.', 
+            'password' => '$2y$10$fNsWl0GTIUolV68.5BSIr.6K1NFw5Nm/0nf8stRwAN8pJKCbIojdC'],
         ]);
 
         DB::table('blogs')->insert([
@@ -37,10 +50,10 @@ class DatabaseSeeder extends Seeder
             'topic' => 'In questo blog si parla di politica',
             'owner' => 'gian'],
 
-            ['id' => 3, 'blogname' => 'calcio', 
-            'name' => 'Blog di Calcio',
-            'topic' => 'In questo blog si parla di calcio',
-            'owner' => 'gian'],
+            ['id' => 3, 'blogname' => 'moda', 
+            'name' => 'Blog di moda',
+            'topic' => 'In questo blog si parla di moda',
+            'owner' => 'giulia'],
         ]);
 
         DB::table('posts')->insert([
@@ -51,6 +64,10 @@ class DatabaseSeeder extends Seeder
             ['id' => 2, 'author' => 'gian', 
             'blog' => 'politica', 
             'text' => 'Ciao a tutti! Questo è il mio primo post sul mio nuovo blog che parla di politica'],
+
+            ['id' => 3, 'author' => 'giulia', 
+            'blog' => 'moda', 
+            'text' => 'Ciao a tutti! Questo è il mio primo post sul mio nuovo blog che parla di moda'],
         ]);        
     }
 }

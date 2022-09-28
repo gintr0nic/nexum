@@ -13,6 +13,25 @@ function newPost() {
     });
 }
 
+function deletePost() {
+    if (!confirm("Sei sicuro di voler rimuovere il post?"))
+        return;
+
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: $('#buttonDeletePost').attr('url'),
+        type: 'POST',
+        statusCode: {
+            200: function (response) {
+                location.reload()
+            },
+            403: function (response) {
+                alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
+            }
+        }
+    });
+}
+
 function editProfile() {
     $.ajax({
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -24,7 +43,7 @@ function editProfile() {
             200: function (response) {
                 alert('Profilo modificato con successo!', 'success')
             },
-            401: function (response) {
+            403: function (response) {
                 alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
             }
         }
