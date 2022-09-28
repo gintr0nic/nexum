@@ -30,13 +30,32 @@
                         <p class="card-text">{{ $post->text }}</p>
 
                         @can('editPost', $post)
-                            <button id="buttonEditPost" type="button" class="btn btn-outline-dark">Modifica</button>
-                            <button id="buttonDeletePost" onClick="deletePost()" url="{{ route('deletePost', ['blogname' => $blog->blogname, 'postid' => $post->id ]) }}" type="button" class="btn btn-dark">Elimina</button>
+                            <button id="buttonEditPost" type="button" class="btn btn-dark">Modifica</button>
+                            <button data-bs-toggle="modal" data-bs-target="#deleteModal" type="button" class="btn btn-danger">Elimina</button>
                         @endcan
                     </div>
                 </div>
 
                 <div class="p-2" id="alertPlaceholder"></div>
+
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Rimuovi post</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Sei sicuro di voler rimuovere il post?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                <button id="buttonDeletePost" onClick="deletePost()" url="{{ route('deletePost', ['blogname' => $blog->blogname, 'postid' => $post->id ]) }}" type="button" class="btn btn-danger">Elimina</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             @endforeach
         </div>
         <div class="col-4">
@@ -54,6 +73,7 @@
         </div>
     </div>
 </div>
+
 
 @include('layouts.footer')
 

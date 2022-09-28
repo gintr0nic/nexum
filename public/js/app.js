@@ -14,9 +14,6 @@ function newPost() {
 }
 
 function deletePost() {
-    if (!confirm("Sei sicuro di voler rimuovere il post?"))
-        return;
-
     $.ajax({
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: $('#buttonDeletePost').attr('url'),
