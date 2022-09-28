@@ -14,9 +14,9 @@
         <div class="col-8">
             <div class="card m-2">
                 <div class="card-body">
-                    {{ Form::open(array('id' => 'formPost')) }}
-                        {{ Form::label('text', 'Scrivi un nuovo post:', ['class' => 'form-label h5', 'for' => 'formPostBody']) }}
-                        {{ Form::textarea('text', '', ['class' => 'form-control', 'id' => 'formPostBody', 'rows' => 3]) }}
+                    {{ Form::open(array('id' => 'formNewPost')) }}
+                        {{ Form::label('text', 'Scrivi un nuovo post:', ['class' => 'form-label h5', 'for' => 'formNewPostBody']) }}
+                        {{ Form::textarea('text', '', ['class' => 'form-control', 'id' => 'formNewPostBody', 'rows' => 3]) }}
                         <button id="buttonPost" onClick="newPost()" url="{{ route('newPost', ['blogname' => $blog->blogname ]) }}" class="btn btn-dark btn-lg my-3" type="button">Invia</button>
                     {{ Form::close() }}
                 </div>
@@ -30,7 +30,7 @@
                         <p class="card-text">{{ $post->text }}</p>
 
                         @can('editPost', $post)
-                            <button id="buttonEditPost" type="button" class="btn btn-dark">Modifica</button>
+                            <button data-bs-toggle="modal" data-bs-target="#editModal" type="button" class="btn btn-dark">Modifica</button>
                             <button data-bs-toggle="modal" data-bs-target="#deleteModal" type="button" class="btn btn-danger">Elimina</button>
                         @endcan
                     </div>
@@ -38,8 +38,29 @@
 
                 <div class="p-2" id="alertPlaceholder"></div>
 
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            {{ Form::open(array('id' => 'formEditPost')) }}
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Modifica post</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                        {{ Form::label('text', 'Nuovo contenuto del post:', ['class' => 'form-label', 'for' => 'formEditPostBody']) }}
+                                        {{ Form::textarea('text', $post->text, ['class' => 'form-control', 'id' => 'formEditPostBody', 'rows' => 3]) }}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                    <button id="buttonEditPost" onClick="editPost()" url="{{ route('editPost', ['blogname' => $blog->blogname, 'postid' => $post->id ]) }}" type="button" class="btn btn-success">Modifica</button>
+                                </div>
+                            {{ Form::close() }}
+                        </div>
+                    </div>
+                </div>
+
                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="deleteModalLabel">Rimuovi post</h5>

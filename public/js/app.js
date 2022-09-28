@@ -4,11 +4,29 @@ function newPost() {
         url: $('#buttonPost').attr('url'),
         type: 'POST',
         dataType: 'json',
-        data: $("#formPost").serialize(),
+        data: $("#formNewPost").serialize(),
         statusCode: {
             200: function (response) {
                 location.reload()
             },
+        }
+    });
+}
+
+function editPost() {
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: $('#buttonEditPost').attr('url'),
+        type: 'POST',
+        dataType: 'json',
+        data: $("#formEditPost").serialize(),
+        statusCode: {
+            200: function (response) {
+                location.reload()
+            },
+            403: function (response) {
+                alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
+            }
         }
     });
 }

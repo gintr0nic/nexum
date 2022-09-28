@@ -33,4 +33,12 @@ class BlogController extends Controller {
     public function deletePost(Request $request, $blogname, $postid) {
         Post::where('id', $postid)->first()->delete();
     }
+
+    public function editPost(Request $request, $blogname, $postid) {
+        $post = Post::where('id', $postid)->first();
+
+        $post->text = $request->input('text');
+
+        $post->save();
+    }
 }
