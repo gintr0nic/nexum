@@ -48,4 +48,16 @@ class User extends Authenticatable
 
         return $blogs;
     }
+
+    public function isStaff() {
+        return $this->attributes['role'] == 'staff';
+    }
+
+    public function isAdmin() {
+        return $this->attributes['role'] == 'admin';
+    }
+
+    public function isPrivate() {
+        return $this->attributes['private'];
+    }
 }

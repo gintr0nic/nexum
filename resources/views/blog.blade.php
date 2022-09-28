@@ -28,6 +28,10 @@
                         <a href="{{ route('user', ['username' => $post->author ]) }}"><h5 class="card-title">{{ $post->getAuthor()->name }} {{ $post->getAuthor()->surname }}</h5></a>
                         <p class="text-muted">postato il {{ $post->getCreationDate() }} alle {{ $post->getCreationTime() }}</p>
                         <p class="card-text">{{ $post->text }}</p>
+
+                        @can('editPost', $post)
+                            <p>Modifica post</p>
+                        @endcan
                     </div>
                 </div>
             @endforeach

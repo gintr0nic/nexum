@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->date('birthdate');
             $table->string('address');
             $table->string('city');
-            $table->enum('role', array('user','moderator', 'admin'))->default('user');
+            $table->enum('role', array('user','staff', 'admin'))->default('user');
             $table->boolean('private')->default(false);
             $table->string('friends')->default('');
             $table->string('bio')->default('');
