@@ -20,6 +20,11 @@
                     <button type="button" onclick="location.href='{{ route('user', ['username' => Auth::user()->username ]) }}'" class="btn btn-outline-dark btn-lg px-4 me-2">Vai al tuo profilo</button>
                 @endauth
             </div>
+
+            <div class="my-5">
+                <button type="button" onclick="location.href='https://github.com/gintr0nic/nexum'" class="btn btn-outline-dark px-4 me-2">Leggi la documentazione</button>
+                <button type="button" onclick="location.href='https://github.com/gintr0nic/nexum'" class="btn btn-outline-dark px-4 me-2">Vai al codice sorgente</button>
+            </div>
         </div>
         <div class="col-6">
             <img src="{{ asset('assets/social.png') }}" class="d-block mx-lg-auto img-fluid"
