@@ -60,4 +60,8 @@ class User extends Authenticatable
     public function isPrivate() {
         return $this->attributes['private'];
     }
+
+    public function isFriendOf($username) {
+        return false; // TO DO
+    }
 }

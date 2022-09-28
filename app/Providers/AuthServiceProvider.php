@@ -35,5 +35,15 @@ class AuthServiceProvider extends ServiceProvider
 
             return false;
         });
+
+        Gate::define('private', function (User $user, User $other) {
+            if($user->isStaff()) return true;
+            if($user->isAdmin()) return true;
+            if($user->username == $other->username) return true;
+            if($other->private == false) return true;
+            if($other->private && $other->isFriendOf($user->username)) return true;
+
+            return false;
+        });
     }
 }
