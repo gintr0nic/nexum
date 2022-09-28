@@ -41,4 +41,25 @@ class BlogController extends Controller {
 
         $post->save();
     }
+
+    public function showNewBlogForm() {
+        return view('newblog');
+    }
+
+    public function newBlog(Request $request) {
+        $blog = Blog::create([
+            'blogname' => $request->input('blogname'),
+            'name' => $request->input('name'),
+            'topic' => $request->input('topic'),
+            'owner' => auth()->user()->username,
+        ]);
+
+        Post::create([
+            'blog' => $blog->blogname,
+            'author' => auth()->user()->username,
+            'text' => $request->input('firstpost'),
+        ]);
+
+        return redirect('/blog/' . $blog->blogname);
+    }
 }

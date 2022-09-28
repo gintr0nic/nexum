@@ -37,3 +37,7 @@ Route::get('blog/{blogname}', 'BlogController@index')->name('blog');
 Route::post('blog/{blogname}/post', 'BlogController@newPost')->name('newPost');
 Route::post('blog/{blogname}/edit/{postid}', 'BlogController@editPost')->name('editPost')->middleware('editPost');
 Route::post('blog/{blogname}/delete/{postid}', 'BlogController@deletePost')->name('deletePost')->middleware('editPost');
+
+//Rotte per la creazione di un blog
+Route::get('newblog', 'BlogController@showNewBlogForm')->name('newBlog');
+Route::post('newblog', 'BlogController@newBlog');

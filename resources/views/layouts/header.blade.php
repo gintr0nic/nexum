@@ -20,13 +20,16 @@
 
             @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}#features">Profilo</a>
+                    <a class="nav-link" href="{{ route('user', ['username' => Auth::user()->username ]) }}">Profilo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}#contatti">Messaggi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}#regolamento">Crea un nuovo blog</a>
+                    <a class="nav-link" href="{{ route('home') }}#contatti">Amici</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('newBlog') }}">Crea un nuovo blog</a>
                 </li>
             @endauth
         </ul>
