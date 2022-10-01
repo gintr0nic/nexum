@@ -37,6 +37,32 @@ class DatabaseSeeder extends Seeder
             'friends' => '', 
             'bio' => 'Ciao sono Giulia. Questa è la mia biografia.', 
             'password' => '$2y$10$fNsWl0GTIUolV68.5BSIr.6K1NFw5Nm/0nf8stRwAN8pJKCbIojdC'],
+
+            ['id' => 3, 'username' => 'mario', 
+            'name' => 'Mario', 
+            'surname' => 'Rossi',
+            'sex' => 'male',
+            'address' => 'Via dei Marsi 59',
+            'city' => 'San Nicandro Garganico',
+            'birthdate' => '2000-03-06',
+            'role' => 'user', 
+            'private' => true, 
+            'friends' => '', 
+            'bio' => 'Ciao sono Mario. Questa è la mia biografia.', 
+            'password' => '$2y$10$fNsWl0GTIUolV68.5BSIr.6K1NFw5Nm/0nf8stRwAN8pJKCbIojdC'],
+
+            ['id' => 4, 'username' => 'alex', 
+            'name' => 'Alex', 
+            'surname' => 'Rossi',
+            'sex' => 'male',
+            'address' => 'Via dei Marsi 59',
+            'city' => 'San Nicandro Garganico',
+            'birthdate' => '2000-03-06',
+            'role' => 'user', 
+            'private' => true, 
+            'friends' => '', 
+            'bio' => 'Ciao sono Alex. Questa è la mia biografia.', 
+            'password' => '$2y$10$fNsWl0GTIUolV68.5BSIr.6K1NFw5Nm/0nf8stRwAN8pJKCbIojdC'],
         ]);
 
         DB::table('blogs')->insert([

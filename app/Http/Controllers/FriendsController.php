@@ -16,15 +16,27 @@ class FriendsController extends Controller {
     }
 
     public function index() {
-        $friendRequests = FriendRequest::where('to', auth()->user()->username)->get();
+        $friendRequests = FriendRequest::where('to', auth()->user()->username)->latest()->get();
 
         return view('friends', ['friendRequests' => $friendRequests]);
     }
 
     public function sendFriendRequest(Request $request) {
-        $friendRequest = FriendRequest::create([
+        FriendRequest::create([
             'from' => auth()->user()->username,
             'to' => $request->input('to'),
         ]);
+    }
+
+    public function acceptFriendRequest(Request $request) {
+        $friendRequest = FriendRequest::where('id', $request->input('id'))->first();
+        $friendRequest->status = 'accepted'; 
+        $friendRequest->save();
+    }
+
+    public function refuseFriendRequest(Request $request) {
+        $friendRequest = FriendRequest::where('id', $request->input('id'))->first();
+        $friendRequest->status = 'refused'; 
+        $friendRequest->save();
     }
 }

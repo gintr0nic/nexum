@@ -20,4 +20,22 @@ class FriendRequest extends Model
 
         return $date;
     }
+
+    public function getUpdatedDate() {
+        $date = Carbon::parse($this->attributes['updated_at'])->isoFormat('DD-MM-YYYY');
+
+        return $date;
+    }
+
+    public function getUpdatedTime() {
+        $date = Carbon::parse($this->attributes['updated_at'])->isoFormat('HH:mm');
+
+        return $date;
+    }
+
+    public function getUser() {
+        $user = User::where('username', $this->from)->first();
+
+        return $user;
+    }
 }

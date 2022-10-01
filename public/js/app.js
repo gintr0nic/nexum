@@ -84,6 +84,45 @@ function sendFriendRequest(user) {
     });
 }
 
+function acceptRequest(id) {
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: $('#buttonAcceptRequest').attr('url'),
+        type: 'POST',
+        dataType: 'json',
+        data: {id: id},
+        statusCode: {
+            200: function (response) {
+                //alert('Richiesta inviata!', 'success')
+                location.reload()
+            },
+            403: function (response) {
+                alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
+            }
+        }
+    });
+}
+
+function refuseRequest(id) {
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: $('#buttonRefuseRequest').attr('url'),
+        type: 'POST',
+        dataType: 'json',
+        data: {id: id},
+        statusCode: {
+            200: function (response) {
+                //alert('Richiesta inviata!', 'success')
+                location.reload()
+            },
+            403: function (response) {
+                alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
+            }
+        }
+    });
+}
+
+
 const alertPlaceholder = document.getElementById('alertPlaceholder')
 
 const alert = (message, type) => {
