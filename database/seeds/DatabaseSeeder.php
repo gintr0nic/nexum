@@ -68,6 +68,20 @@ class DatabaseSeeder extends Seeder
             ['id' => 3, 'author' => 'giulia', 
             'blog' => 'moda', 
             'text' => 'Ciao a tutti! Questo è il mio primo post sul mio nuovo blog che parla di moda'],
-        ]);        
+        ]);
+        
+        DB::table('friend_requests')->insert([
+            ['id' => 1,
+            'from' => 'giulia', 
+            'to' => 'gian'],
+
+            ['id' => 2,
+            'from' => 'mario', 
+            'to' => 'gian'],
+
+            ['id' => 3,
+            'from' => 'alex', 
+            'to' => 'gian'],
+        ]);  
     }
 }

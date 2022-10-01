@@ -43,4 +43,5 @@ Route::get('newBlog', 'BlogController@showNewBlogForm')->name('newBlog');
 Route::post('newBlog', 'BlogController@newBlog');
 
 //Rotte per le richieste di amicizia
-Route::post('sendFriendRequest', 'FriendRequestController@sendFriendRequest')->name('sendFriendRequest')->middleware('sendFriendRequest');
+Route::post('sendFriendRequest', 'FriendsController@sendFriendRequest')->name('sendFriendRequest')->middleware('sendFriendRequest');
+Route::get('friends', 'FriendsController@index')->name('friends');

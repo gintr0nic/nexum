@@ -26,7 +26,7 @@
                     <a class="nav-link" href="{{ route('home') }}#contatti">Messaggi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}#contatti">Amici</a>
+                    <a class="nav-link" href="{{ route('friends') }}">Amici</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('newBlog') }}">Crea un nuovo blog</a>
