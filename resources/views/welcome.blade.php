@@ -22,8 +22,8 @@
             </div>
 
             <div class="my-5">
-                <button type="button" onclick="location.href='https://github.com/gintr0nic/nexum'" class="btn btn-outline-dark px-4 me-2">Leggi la documentazione</button>
-                <button type="button" onclick="location.href='https://github.com/gintr0nic/nexum'" class="btn btn-outline-dark px-4 me-2">Vai al codice sorgente</button>
+                <button type="button" onclick="location.href='https://github.com/mrgian/nexum'" class="btn btn-outline-dark px-4 me-2">Leggi la documentazione</button>
+                <button type="button" onclick="location.href='https://github.com/mrgian/nexum'" class="btn btn-outline-dark px-4 me-2">Vai al codice sorgente</button>
             </div>
         </div>
         <div class="col-6">
