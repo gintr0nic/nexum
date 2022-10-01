@@ -39,5 +39,8 @@ Route::post('blog/{blogname}/edit/{postid}', 'BlogController@editPost')->name('e
 Route::post('blog/{blogname}/delete/{postid}', 'BlogController@deletePost')->name('deletePost')->middleware('editPost');
 
 //Rotte per la creazione di un blog
-Route::get('newblog', 'BlogController@showNewBlogForm')->name('newBlog');
-Route::post('newblog', 'BlogController@newBlog');
+Route::get('newBlog', 'BlogController@showNewBlogForm')->name('newBlog');
+Route::post('newBlog', 'BlogController@newBlog');
+
+//Rotte per le richieste di amicizia
+Route::post('sendFriendRequest', 'FriendRequestController@sendFriendRequest')->name('sendFriendRequest')->middleware('sendFriendRequest');

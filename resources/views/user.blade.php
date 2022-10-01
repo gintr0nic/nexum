@@ -11,8 +11,21 @@
                 <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                 <h5>{{ $user->username }}</h5>
                 @if (Auth::user()->username == $user->username)
-                    <div class="mt-5 text-center"><button onclick="location.href='{{ route('edit') }}'" class="btn btn-dark profile-button" type="button">Modifica profilo</button></div>
+                    <button onclick="location.href='{{ route('edit') }}'" class="btn btn-dark my-3" type="button">Modifica profilo</button>
                 @endif
+
+                @cannot('isFriend', $user)
+                    @can('sendFriendRequest', $user)
+                        <button url="{{ route('sendFriendRequest') }}" onClick="sendFriendRequest('{{ $user->username }}')" class="btn btn-dark btn-lg my-3" id="buttonSendFriendRequest">Invia richiesta di amicizia</button>
+                    @endcan
+
+                    @cannot('sendFriendRequest', $user)
+                        <button class="btn btn-dark btn-lg my-3" id="buttonSendFriendRequest">Richiesta inviata</button>
+                        <p>Hai già inviato una richiesta di amicizia a {{ $user->name }}, aspetta che l'accetti.<br>({{ $user->name }} potrebbe aver rifiutato la richiesta di amicizia)</p>
+                    @endcan
+
+                    <div class="p-2" id="alertPlaceholder"></div>
+                @endcannot
             </div>
         </div>
         <div class="col-5 border-right">

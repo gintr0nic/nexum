@@ -65,6 +65,25 @@ function editProfile() {
     });
 }
 
+function sendFriendRequest(user) {
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: $('#buttonSendFriendRequest').attr('url'),
+        type: 'POST',
+        dataType: 'json',
+        data: {to: user},
+        statusCode: {
+            200: function (response) {
+                //alert('Richiesta inviata!', 'success')
+                $('#buttonSendFriendRequest').html('Richiesta inviata');
+            },
+            403: function (response) {
+                alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
+            }
+        }
+    });
+}
+
 const alertPlaceholder = document.getElementById('alertPlaceholder')
 
 const alert = (message, type) => {

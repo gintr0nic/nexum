@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Gate;
 
 use App\User;
 use App\Post;
+use App\FriendRequest;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -36,7 +37,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
-        Gate::define('private', function (User $user, User $other) {
+        Gate::define('isPrivate', function (User $user, User $other) {
             if($user->isStaff()) return true;
             if($user->isAdmin()) return true;
             if($user->username == $other->username) return true;
@@ -44,6 +45,25 @@ class AuthServiceProvider extends ServiceProvider
             if($other->private && $other->isFriendOf($user->username)) return true;
 
             return false;
+        });
+
+        Gate::define('isFriend', function (User $user, User $other) {
+            if($user->username == $other->username) return true;
+            if($other->private && $other->isFriendOf($user->username)) return true;
+
+            return false;
+        });
+
+        Gate::define('isUser', function (User $user, User $other) {
+            if($user->username == $other->username) return true;
+
+            return false;
+        });
+
+        Gate::define('sendFriendRequest', function (User $user, User $to) {
+            if(FriendRequest::where('from', $user->username)->where('to', $to->username)->exists()) return false;
+
+            return true;
         });
     }
 }
