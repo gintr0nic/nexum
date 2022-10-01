@@ -7,7 +7,11 @@
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-6">
-            <h1>Amici</h1>
+            <ul>
+                @foreach($friends as $friend)
+                    <li>{{ $friend }}</li>
+                @endforeach
+            </ul>
         </div>
         <div class="col-6">
             <h1>Richieste di amicizia</h1>

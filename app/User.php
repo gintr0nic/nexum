@@ -61,7 +61,16 @@ class User extends Authenticatable
         return $this->attributes['private'];
     }
 
+    public function getFriends() {
+        $friends = explode(";", $this->attributes['friends']);
+        array_pop($friends);
+
+        return $friends;
+    }
+
     public function isFriendOf($username) {
-        return false; // TO DO
+        $friends = $this->getFriends();
+    
+        return in_array($username, $friends);
     }
 }
