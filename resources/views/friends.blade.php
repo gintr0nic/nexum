@@ -7,11 +7,33 @@
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-6">
-            <ul>
+        <h1>Amici</h1>
                 @foreach($friends as $friend)
-                    <li>{{ $friend }}</li>
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <a href="{{ route('user', ['username' => $friend->username ]) }}"><h5 class="card-title">{{ $friend->name }} {{ $friend->surname }}</h5></a>
+                                <button data-bs-toggle="modal" data-bs-target="#removeModal{{ $friend->id }}" type="button" class="btn btn-danger my-2">Rimuovi dagli amici</button>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="removeModal{{ $friend->id }}" tabindex="-1" aria-labelledby="removeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="removeModalLabel">Rimuovi amico</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sei sicuro di voler rimuovere {{ $friend->name }} {{ $friend->surname }} dagli amici?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                                    <button id="buttonRemoveFriend" onClick="removeFriend('{{ $friend->username }}')" url="{{ route('removeFriend') }}" type="button" class="btn btn-danger">Rimuovi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
-            </ul>
         </div>
         <div class="col-6">
             <h1>Richieste di amicizia</h1>

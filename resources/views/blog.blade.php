@@ -10,6 +10,14 @@
         <h3>{{ $blog->topic }}</h3>
     </div>
 
+    @cannot('isFriend', $blog->getOwner())
+    <div class="alert alert-danger" role="alert">
+        <p>Il contenuto di questo blog non è visibile perchè l'autore di questo blog non è fra i tuo <b>amici</b>.<br>
+            Invia una richiesta di amicizia a <a href="{{ route('user', ['username' => $blog->owner ]) }}">{{ $blog->getOwner()->name }} {{ $blog->getOwner()->surname }}</a> per vedere questo blog.</p>
+    </div>
+    @endcannot
+
+    @can('isFriend', $blog->getOwner())
     <div class="row">
         <div class="col-8">
             <div class="card m-2">
@@ -93,6 +101,7 @@
             </div>
         </div>
     </div>
+    @endcan
 </div>
 
 

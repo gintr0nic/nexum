@@ -122,6 +122,25 @@ function refuseRequest(id) {
     });
 }
 
+function removeFriend(username) {
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: $('#buttonRemoveFriend').attr('url'),
+        type: 'POST',
+        dataType: 'json',
+        data: {username: username},
+        statusCode: {
+            200: function (response) {
+                //alert('Richiesta inviata!', 'success')
+                location.reload()
+            },
+            403: function (response) {
+                alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
+            }
+        }
+    });
+}
+
 
 const alertPlaceholder = document.getElementById('alertPlaceholder')
 
