@@ -48,3 +48,6 @@ Route::get('friends', 'FriendsController@index')->name('friends');
 Route::post('removeFriend', 'FriendsController@removeFriend')->name('removeFriend');
 Route::post('acceptFriendRequest', 'FriendsController@acceptFriendRequest')->name('acceptFriendRequest');
 Route::post('refuseFriendRequest', 'FriendsController@refuseFriendRequest')->name('refuseFriendRequest');
+
+
+
