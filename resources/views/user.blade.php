@@ -21,9 +21,9 @@
 
                     @cannot('sendFriendRequest', $user)
                         <button class="btn btn-dark btn-lg my-3" id="buttonSendFriendRequest">Richiesta inviata</button>
-                        <p>Hai già inviato una richiesta di amicizia a {{ $user->name }}, aspetta che l'accetti.<br>({{ $user->name }} potrebbe aver rifiutato la richiesta di amicizia)</p>
+                        <p>Hai già inviato una richiesta di amicizia a {{ $user->name }}, oppure {{ $user->name }} te ne ha già inviata una.<br>({{ $user->name }} potrebbe aver rifiutato la richiesta di amicizia)</p>
                     @endcan
-
+                    
                     <div class="p-2" id="alertPlaceholder"></div>
                 @endcannot
             </div>

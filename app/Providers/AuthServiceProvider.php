@@ -62,8 +62,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('sendFriendRequest', function (User $user, User $to) {
             if(FriendRequest::where('from', $user->username)->where('to', $to->username)->exists()) return false;
-
+            if(FriendRequest::where('to', $user->username)->where('from', $to->username)->exists()) return false;
+            
             return true;
         });
+                                
     }
 }
