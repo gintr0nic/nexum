@@ -1,14 +1,14 @@
 @extends('layouts.layout')
 
 @section('content')
+    @include('layouts.header')
 
-@include('layouts.header')
-
-<div class="container rounded bg-white mt-5 mb-5">
-    {{ Form::open(array('id' => 'formEdit', 'class' => 'row')) }}
+    <div class="container rounded bg-white mt-5 mb-5">
+        {{ Form::open(['id' => 'formEdit', 'class' => 'row']) }}
         <div class="col-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                <img class="rounded-circle mt-5" width="150px"
+                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
                 <h5>{{ Auth::user()->username }}</h5>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <div class="row mt-3">
                     <div class="col-12 py-1">
                         {{ Form::label('sex', 'Sesso', ['class' => 'form-label', 'for' => 'formSex']) }}
-                        {{ Form::select('sex', ['male' => 'Uomo', 'female' => 'Donna'], 'Uomo' ,['class' => 'form-select', 'id' => 'formSex']) }}
+                        {{ Form::select('sex', ['male' => 'Uomo', 'female' => 'Donna'], 'Uomo', ['class' => 'form-select', 'id' => 'formSex']) }}
                     </div>
                     <div class="col-12 py-1">
                         {{ Form::label('birthdate', 'Data di nascita', ['class' => 'form-label', 'for' => 'formBirthate']) }}
@@ -65,12 +65,12 @@
             </div>
         </div>
         <div class="mt-5 text-center">
-            <button id="buttonEdit" url="{{ route('edit') }}" class="btn btn-dark" type="button" onClick="editProfile()">Salva profilo</button>
+            <button id="buttonEdit" url="{{ route('edit') }}" class="btn btn-dark" type="button"
+                onClick="editProfile()">Salva profilo</button>
             <div class="p-2" id="alertPlaceholder"></div>
         </div>
-    {{ Form::close() }}
-</div>
+        {{ Form::close() }}
+    </div>
 
-@include('layouts.footer')
-
+    @include('layouts.footer')
 @endsection

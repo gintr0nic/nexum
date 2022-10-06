@@ -20,7 +20,7 @@
 
             @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user', ['username' => Auth::user()->username ]) }}">Profilo</a>
+                    <a class="nav-link" href="{{ route('user', ['username' => Auth::user()->username]) }}">Profilo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}#contatti">Messaggi</a>
@@ -33,16 +33,19 @@
                 </li>
             @endauth
         </ul>
-        
+
         <div class="d-flex">
             <ul class="navbar-nav">
                 @guest
-                    <button type="button" onclick="location.href='{{ route('login') }}'" class="btn btn-outline-light mx-1">Login</button>
-                    <button type="button" onclick="location.href='{{ route('register') }}'" class="btn btn-light mx-1">Registrati</button>
+                    <button type="button" onclick="location.href='{{ route('login') }}'"
+                        class="btn btn-outline-light mx-1">Login</button>
+                    <button type="button" onclick="location.href='{{ route('register') }}'"
+                        class="btn btn-light mx-1">Registrati</button>
                 @endguest
 
                 @auth
-                    <button type="button" onclick="location.href='{{ route('logout') }}'" class="btn btn-outline-light mx-1">Logout</button>
+                    <button type="button" onclick="location.href='{{ route('logout') }}'"
+                        class="btn btn-outline-light mx-1">Logout</button>
                 @endauth
             </ul>
         </div>

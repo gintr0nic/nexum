@@ -9,19 +9,22 @@ class Post extends Model
 {
     protected $guarded = [];
 
-    public function getAuthor() {
+    public function getAuthor()
+    {
         $user = User::where('username', $this->author)->first();
 
         return $user;
     }
 
-    public function getCreationDate() {
+    public function getCreationDate()
+    {
         $date = Carbon::parse($this->attributes['created_at'])->isoFormat('DD-MM-YYYY');
 
         return $date;
     }
 
-    public function getCreationTime() {
+    public function getCreationTime()
+    {
         $date = Carbon::parse($this->attributes['created_at'])->isoFormat('HH:mm');
 
         return $date;
