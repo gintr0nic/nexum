@@ -43,7 +43,7 @@ class BlogController extends Controller {
     }
 
     public function showNewBlogForm() {
-        return view('newBlog');
+        return view('newblog');
     }
 
     public function newBlog(Request $request) {
