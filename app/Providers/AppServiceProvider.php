@@ -29,6 +29,25 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //$this->registerPolicies();
+
+        Gate::define('isStaffOrAdmin', function (User $user) {
+            if($user->isStaff()) return true;
+            if($user->isAdmin()) return true;
+
+            return false;
+        });
+
+        Gate::define('isStaff', function (User $user) {
+            if($user->isStaff()) return true;
+
+            return false;
+        });
+
+        Gate::define('isAdmin', function (User $user) {
+            if($user->isAdmin()) return true;
+
+            return false;
+        });
         
         Gate::define('editPost', function (User $user, Post $post) {
             if($user->isStaff()) return true;

@@ -19,18 +19,27 @@
             @endguest
 
             @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user', ['username' => Auth::user()->username]) }}">Profilo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}#contatti">Messaggi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('friends') }}">Amici</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('newBlog') }}">Crea un nuovo blog</a>
-                </li>
+
+                @cannot('isStaffOrAdmin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user', ['username' => Auth::user()->username]) }}">Profilo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}#contatti">Messaggi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('friends') }}">Amici</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('newBlog') }}">Crea un nuovo blog</a>
+                    </li>
+                @endcannot
+
+                @can('isStaffOrAdmin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin') }}">Pannello di amministrazione</a>
+                    </li>
+                @endcannot
             @endauth
         </ul>
 

@@ -49,5 +49,6 @@ Route::post('removeFriend', 'FriendsController@removeFriend')->name('removeFrien
 Route::post('acceptFriendRequest', 'FriendsController@acceptFriendRequest')->name('acceptFriendRequest');
 Route::post('refuseFriendRequest', 'FriendsController@refuseFriendRequest')->name('refuseFriendRequest');
 
-
+// Rotte per l'amministrazione
+Route::get('admin', 'AdminController@index')->name('admin');
 
