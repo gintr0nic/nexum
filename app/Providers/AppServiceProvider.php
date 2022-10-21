@@ -30,14 +30,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //$this->registerPolicies();
 
-        Gate::define('isStaffOrAdmin', function (User $user) {
-            if($user->isStaff()) return true;
-            if($user->isAdmin()) return true;
-
-            return false;
-        });
-
         Gate::define('isStaff', function (User $user) {
+            if($user->isAdmin()) return true;
             if($user->isStaff()) return true;
 
             return false;

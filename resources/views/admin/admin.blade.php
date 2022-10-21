@@ -7,7 +7,7 @@
         <h1 class="mb-5">Pannello di amministrazione</h1>
 
         <div class="list-group w-auto m-5">
-            @can('isStaffOrAdmin')
+            @can('isStaff')
                 <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                     <img src="{{ asset('assets/userlist.png') }}" class="flex-shrink-0" width="32" height="32">
                     <div class="d-flex gap-2 w-100 justify-content-between">

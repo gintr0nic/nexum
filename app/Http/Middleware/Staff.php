@@ -7,7 +7,7 @@ use Closure;
 use App\Post;
 use Illuminate\Support\Facades\Gate;
 
-class Admin
+class Staff
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class Admin
      * @return mixed
      */
     public function handle($request, Closure $next) {
-        if (Gate::allows('isAdmin')) {
+        if (Gate::allows('isStaff')) {
             return $next($request);
         }else{
             abort('403');

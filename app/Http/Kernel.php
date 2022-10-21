@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'editPost' => \App\Http\Middleware\EditPost::class,
         'sendFriendRequest' => \App\Http\Middleware\SendFriendRequest::class,
         'admin' => \App\Http\Middleware\Admin::class,
+        'staff' => \App\Http\Middleware\Staff::class,
     ];
 
     /**

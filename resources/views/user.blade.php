@@ -92,25 +92,27 @@
 
     <hr />
 
-    <div class="container rounded bg-white mt-5 mb-5" id="blogs">
-        @can('isPrivate', $user)
-            <div class="col-8">
-                @can('isUser', $user)
-                    <h3>Lista dei tuoi blog</h3>
-                @endcan
+    @cannot('isStaff')
+        <div class="container rounded bg-white mt-5 mb-5" id="blogs">
+            @can('isPrivate', $user)
+                <div class="col-8">
+                    @can('isUser', $user)
+                        <h3>Lista dei tuoi blog</h3>
+                    @endcan
 
-                @cannot('isUser', $user)
-                    <h3>Lista dei blog di {{ $user->name }} {{ $user->surname }}</h3>
-                @endcan
+                    @cannot('isUser', $user)
+                        <h3>Lista dei blog di {{ $user->name }} {{ $user->surname }}</h3>
+                    @endcan
 
-                <ul>
-                    @foreach ($user->getBlogs() as $blog)
-                        <li><a href="{{ route('blog', ['blogname' => $blog->blogname]) }}">{{ $blog->name }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-        @endcan
-    </div>
+                    <ul>
+                        @foreach ($user->getBlogs() as $blog)
+                            <li><a href="{{ route('blog', ['blogname' => $blog->blogname]) }}">{{ $blog->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endcan
+        </div>
+    @endcannot
 
     @include('layouts.footer')
 

@@ -20,7 +20,7 @@
 
             @auth
 
-                @cannot('isStaffOrAdmin')
+                @cannot('isStaff')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('user', ['username' => Auth::user()->username]) }}">Profilo</a>
                     </li>
@@ -35,7 +35,7 @@
                     </li>
                 @endcannot
 
-                @can('isStaffOrAdmin')
+                @can('isStaff')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin') }}">Pannello di amministrazione</a>
                     </li>
