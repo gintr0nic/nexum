@@ -21,4 +21,10 @@ class StaffController extends Controller {
 
         return view('admin.userlist', ['users' => $users]);
     }
+
+    public function blogList() {
+        $blogs = Blog::all();
+
+        return view('admin.bloglist', ['blogs' => $blogs]);
+    }
 }

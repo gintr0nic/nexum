@@ -93,7 +93,6 @@
     </div>
 
     <hr />
-
         <div class="container rounded bg-white mt-5 mb-5" id="blogs">
             @can('isPrivate', $user)
                 <div class="col-8">
@@ -107,11 +106,19 @@
                         <h3>Lista dei blog di {{ $user->name }} {{ $user->surname }}</h3>
                     @endcan
 
-                    <ul>
+                    <div class="list-group w-auto">
                         @foreach ($user->getBlogs() as $blog)
-                            <li><a href="{{ route('blog', ['blogname' => $blog->blogname]) }}">{{ $blog->name }}</a></li>
+                            <a href="{{ route('blog', ['blogname' => $blog->blogname]) }}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                                <img src="{{ asset('assets/user.jpg') }}" class="flex-shrink-0" width="32" height="32">
+                                <div class="d-flex gap-2 w-100 justify-content-between">
+                                    <div>
+                                        <h6 class="mb-0">{{ $blog->name }}</h6>
+                                        <p class="mb-0 opacity-50">{{ $blog->blogname }}</p>
+                                    </div>
+                                </div>
+                            </a>
                         @endforeach
-                    </ul>
+                    </div>
                 </div>
             @endcan
         </div>
