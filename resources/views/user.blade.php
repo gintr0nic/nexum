@@ -9,7 +9,7 @@
             <div class="col-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img class="rounded-circle mt-5" width="150px"
-                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        src="{{ asset('assets/user.jpg') }}">
                     <h5>{{ $user->username }}</h5>
                     @can('isUser', $user)
                         <button onclick="location.href='{{ route('edit') }}'" class="btn btn-dark my-3" type="button">Modifica

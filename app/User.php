@@ -43,6 +43,10 @@ class User extends Authenticatable
         return Carbon::parse($this->birthdate)->isoFormat('d-M-Y');
     }
 
+    public function getSignupDate() {
+        return Carbon::parse($this->created_at)->isoFormat('d-M-Y');
+    }
+
     public function getBlogs() {
         $blogs = Blog::where('owner', $this->username)->get();
 
