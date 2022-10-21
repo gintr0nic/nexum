@@ -62,6 +62,8 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('isFriend', function (User $user, User $other) {
+            if($user->isStaff()) return true;
+            if($user->isAdmin()) return true;
             if($user->username == $other->username) return true;
             if($other->private && $other->isFriendOf($user->username)) return true;
 

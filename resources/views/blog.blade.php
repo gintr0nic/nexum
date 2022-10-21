@@ -22,17 +22,19 @@
         @can('isFriend', $blog->getOwner())
             <div class="row">
                 <div class="col-8">
-                    <div class="card m-2">
-                        <div class="card-body">
-                            {{ Form::open(['id' => 'formNewPost']) }}
-                            {{ Form::label('text', 'Scrivi un nuovo post:', ['class' => 'form-label h5', 'for' => 'formNewPostBody']) }}
-                            {{ Form::textarea('text', '', ['class' => 'form-control', 'id' => 'formNewPostBody', 'rows' => 3]) }}
-                            <button id="buttonPost" onClick="newPost()"
-                                url="{{ route('newPost', ['blogname' => $blog->blogname]) }}" class="btn btn-dark btn-lg my-3"
-                                type="button">Invia</button>
-                            {{ Form::close() }}
+                    @cannot('isStaff')
+                        <div class="card m-2">
+                            <div class="card-body">
+                                {{ Form::open(['id' => 'formNewPost']) }}
+                                {{ Form::label('text', 'Scrivi un nuovo post:', ['class' => 'form-label h5', 'for' => 'formNewPostBody']) }}
+                                {{ Form::textarea('text', '', ['class' => 'form-control', 'id' => 'formNewPostBody', 'rows' => 3]) }}
+                                <button id="buttonPost" onClick="newPost()"
+                                    url="{{ route('newPost', ['blogname' => $blog->blogname]) }}" class="btn btn-dark btn-lg my-3"
+                                    type="button">Invia</button>
+                                {{ Form::close() }}
+                            </div>
                         </div>
-                    </div>
+                    @endcannot
 
                     @foreach ($blog->getPosts() as $post)
                         <div class="card m-2">

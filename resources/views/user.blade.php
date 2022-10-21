@@ -16,19 +16,21 @@
                             profilo</button>
                     @endcan
 
-                    @cannot('isFriend', $user)
-                        @can('sendFriendRequest', $user)
-                            <button url="{{ route('sendFriendRequest') }}" onClick="sendFriendRequest('{{ $user->username }}')"
-                                class="btn btn-dark btn-lg my-3" id="buttonSendFriendRequest">Invia richiesta di amicizia</button>
-                        @endcan
+                    @cannot('isStaff')
+                        @cannot('isFriend', $user)
+                            @can('sendFriendRequest', $user)
+                                <button url="{{ route('sendFriendRequest') }}" onClick="sendFriendRequest('{{ $user->username }}')"
+                                    class="btn btn-dark btn-lg my-3" id="buttonSendFriendRequest">Invia richiesta di amicizia</button>
+                            @endcan
 
-                        @cannot('sendFriendRequest', $user)
-                            <button class="btn btn-dark btn-lg my-3" id="buttonSendFriendRequest">Richiesta inviata</button>
-                            <p>Hai già inviato una richiesta di amicizia a {{ $user->name }}, oppure {{ $user->name }} te ne ha
-                                già inviata una.<br>({{ $user->name }} potrebbe aver rifiutato la richiesta di amicizia)</p>
-                        @endcan
+                            @cannot('sendFriendRequest', $user)
+                                <button class="btn btn-dark btn-lg my-3" id="buttonSendFriendRequest">Richiesta inviata</button>
+                                <p>Hai già inviato una richiesta di amicizia a {{ $user->name }}, oppure {{ $user->name }} te ne ha
+                                    già inviata una.<br>({{ $user->name }} potrebbe aver rifiutato la richiesta di amicizia)</p>
+                            @endcan
 
-                        <div class="p-2" id="alertPlaceholder"></div>
+                            <div class="p-2" id="alertPlaceholder"></div>
+                        @endcannot
                     @endcannot
                 </div>
             </div>
@@ -92,13 +94,14 @@
 
     <hr />
 
-    @cannot('isStaff')
         <div class="container rounded bg-white mt-5 mb-5" id="blogs">
             @can('isPrivate', $user)
                 <div class="col-8">
-                    @can('isUser', $user)
-                        <h3>Lista dei tuoi blog</h3>
-                    @endcan
+                    @cannot('isStaff')
+                        @can('isUser', $user)
+                            <h3>Lista dei tuoi blog</h3>
+                        @endcan
+                    @endcannot
 
                     @cannot('isUser', $user)
                         <h3>Lista dei blog di {{ $user->name }} {{ $user->surname }}</h3>
@@ -112,7 +115,6 @@
                 </div>
             @endcan
         </div>
-    @endcannot
 
     @include('layouts.footer')
 
