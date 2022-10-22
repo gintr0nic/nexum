@@ -43,4 +43,12 @@ class UserController extends Controller {
 
         $user->save();
     }
+
+    public function getMessages() {
+        $user = auth()->user();
+
+        $messages = Message::where('to', $user->username)->latest()->get();
+
+        return view('messages', ['messages' => $messages]);
+    }
 }

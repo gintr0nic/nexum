@@ -55,3 +55,5 @@ Route::get('userlist', 'StaffController@userList')->name('userlist');
 Route::get('bloglist', 'StaffController@blogList')->name('bloglist');
 Route::post('blog/{blogname}/deleteblog', 'StaffController@deleteBlog')->name('deleteBlog');
 
+// Rotte per i messaggi
+Route::get('messages', 'UserController@getMessages')->name('messages');

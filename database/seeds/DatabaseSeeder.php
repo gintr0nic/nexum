@@ -134,6 +134,28 @@ class DatabaseSeeder extends Seeder
             ['id' => 3,
             'from' => 'alex', 
             'to' => 'gian'],
-        ]);  
+        ]);
+
+        DB::table('messages')->insert([
+            ['id' => 1,
+            'from' => 'admin', 
+            'to' => 'gian',
+            'text' => 'Messaggio di prova'],
+
+            ['id' => 2,
+            'from' => 'admin', 
+            'to' => 'giulia',
+            'text' => 'Messaggio di prova'],
+
+            ['id' => 3,
+            'from' => 'admin', 
+            'to' => 'gian',
+            'text' => 'Messaggio di prova 2'],
+
+            ['id' => 4,
+            'from' => 'admin', 
+            'to' => 'gian',
+            'text' => 'Messaggio di prova 3'],
+        ]); 
     }
 }

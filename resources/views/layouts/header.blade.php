@@ -25,7 +25,7 @@
                         <a class="nav-link" href="{{ route('user', ['username' => Auth::user()->username]) }}">Profilo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}#contatti">Messaggi</a>
+                        <a class="nav-link" href="{{ route('messages') }}">Messaggi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('friends') }}">Amici</a>
