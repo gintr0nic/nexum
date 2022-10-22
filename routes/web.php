@@ -53,4 +53,5 @@ Route::post('refuseFriendRequest', 'FriendsController@refuseFriendRequest')->nam
 Route::get('admin', 'AdminController@index')->name('admin');
 Route::get('userlist', 'StaffController@userList')->name('userlist');
 Route::get('bloglist', 'StaffController@blogList')->name('bloglist');
+Route::post('blog/{blogname}/deleteblog', 'StaffController@deleteBlog')->name('deleteBlog');
 

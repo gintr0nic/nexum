@@ -27,4 +27,10 @@ class StaffController extends Controller {
 
         return view('admin.bloglist', ['blogs' => $blogs]);
     }
+
+    public function deleteBlog(Request $request, $blogname) {
+        $blog = Blog::where('blogname', $blogname)->first();
+
+        $blog->delete();
+    }
 }
