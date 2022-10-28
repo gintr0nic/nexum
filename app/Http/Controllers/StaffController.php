@@ -33,4 +33,18 @@ class StaffController extends Controller {
 
         $blog->delete();
     }
+
+    public function deletePost(Request $request, $blogname, $postid) {
+        $post = Post::where('id', $postid)->first();
+
+        $reason = 'Il tuo post sul blog ' . $blogname . ' è stato eliminato perchè: ' . $request->input('reason');
+
+        Message::create([
+            'from' => auth()->user()->username,
+            'to' => $post->getAuthor()->username,
+            'text' => $reason,
+        ]);
+
+        $post->delete();
+    }
 }
