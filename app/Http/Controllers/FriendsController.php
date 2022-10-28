@@ -75,7 +75,7 @@ class FriendsController extends Controller {
         Message::create([
             'from' => auth()->user()->username,
             'to' => $request->input('username'),
-            'text' => auth()->user()->username . ' ti ha rimosso dagli amici.',
+            'text' => auth()->user()->name . ' ti ha rimosso dagli amici.',
         ]);
     }
 }

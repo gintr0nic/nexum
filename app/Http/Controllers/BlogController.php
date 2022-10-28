@@ -28,6 +28,16 @@ class BlogController extends Controller {
             'author' => auth()->user()->username,
             'text' => $request->input('text'),
         ]);
+
+        $users = User::where('role', 'user')->latest()->get();
+
+        foreach($users as $user) {
+            Message::create([
+                'from' => auth()->user()->username,
+                'to' => $user->username,
+                'text' => 'Ho postato un nuovo post sul blog ' . $blogname,
+            ]);
+        }
     }
 
     public function deletePost(Request $request, $blogname, $postid) {
