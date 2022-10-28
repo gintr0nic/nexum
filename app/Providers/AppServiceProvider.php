@@ -44,8 +44,6 @@ class AppServiceProvider extends ServiceProvider
         });
         
         Gate::define('editPost', function (User $user, Post $post) {
-            if($user->isStaff()) return true;
-            if($user->isAdmin()) return true;
             if($post->author == $user->username) return true;
 
             return false;

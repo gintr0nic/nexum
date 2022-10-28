@@ -47,6 +47,25 @@ function deletePost() {
     });
 }
 
+function staffDeletePost() {
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        url: $('#buttonStaffDeletePost').attr('url'),
+        type: 'POST',
+        data: {
+            reason: $("#message-text").val(),
+        },
+        statusCode: {
+            200: function (response) {
+                location.reload()
+            },
+            403: function (response) {
+                alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
+            }
+        }
+    });
+}
+
 function deleteBlog() {
     $.ajax({
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },

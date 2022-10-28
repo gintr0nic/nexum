@@ -20,4 +20,10 @@ class Message extends Model
 
         return $date;
     }
+
+    public function getFrom() {
+        $user = User::where('username', $this->from)->first();
+
+        return $user;
+    }
 }
