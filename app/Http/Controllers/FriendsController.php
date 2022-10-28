@@ -71,5 +71,11 @@ class FriendsController extends Controller {
         $friends = implode(";", $friends);
         $friend->friends = $friends;
         $friend->save();
+
+        Message::create([
+            'from' => auth()->user()->username,
+            'to' => $request->input('username'),
+            'text' => auth()->user()->username . ' ti ha rimosso dagli amici.',
+        ]);
     }
 }
