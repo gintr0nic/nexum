@@ -147,9 +147,17 @@
                                 <h5>Data di creazione: </h5>
                                 <p>{{ $blog->getCreationDate() }}</p>
                             </div>
-                            <div>
-                                <button data-bs-toggle="modal" data-bs-target="#deleteBlogModal" type="button" class="btn btn-large btn-danger">Elimina intero blog</button>
-                            </div>
+                            @can('isUser', $blog->getOwner())
+                                <div>
+                                    <button data-bs-toggle="modal" data-bs-target="#deleteBlogModal" type="button" class="btn btn-large btn-danger">Elimina intero blog</button>
+                                </div>
+                            @endcan
+
+                            @can('isStaff')
+                                <div>
+                                    <button data-bs-toggle="modal" data-bs-target="#deleteBlogModal" type="button" class="btn btn-large btn-danger">Elimina intero blog</button>
+                                </div>
+                            @endcan
                         </div>
                     </div>
                 </div>
