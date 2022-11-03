@@ -72,9 +72,45 @@ class User extends Authenticatable
         return $friends;
     }
 
+    public function getFriendsUsers() {
+        $users = [];
+        $friends = $this->getFriends();
+
+        foreach($friends as $friend) {
+            $user = User::where('username', $friend)->get()->first();
+            array_push($users, $user);
+        }
+
+        return $users;
+    }
+
     public function isFriendOf($username) {
         $friends = $this->getFriends();
     
         return in_array($username, $friends);
+    }
+
+    public function getReceivedRequests() {
+        $requests = FriendRequest::where('to', $this->username)->get();
+
+        return count($requests);
+    }
+
+    public function getAcceptedRequests() {
+        $requests = FriendRequest::where('to', $this->username)->where('status', 'accepted')->get();
+
+        return count($requests);
+    }
+
+    public function getRefusedRequests() {
+        $requests = FriendRequest::where('to', $this->username)->where('status', 'refused')->get();
+
+        return count($requests);
+    }
+
+    public function getPendingRequests() {
+        $requests = FriendRequest::where('to', $this->username)->where('status', 'pending')->get();
+
+        return count($requests);
     }
 }

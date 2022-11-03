@@ -19,4 +19,19 @@ class AdminController extends Controller {
     public function index() {
         return view('admin.admin');
     }
+
+    public function info() {
+        $users = User::where('role', 'user')->latest()->get();
+        $blogs = Blog::all();
+
+        return view('admin.info', ['users' => $users, 'blognumber' => count($blogs)]);
+    }
+
+    public function friendList(Request $request, $username) {
+        $user = User::where('username', $username)->get()->first();
+
+        $friends = $user->getFriendsUsers();
+
+        return view('admin.friendlist', ['friends' => $friends, 'user' => $user]);
+    }
 }

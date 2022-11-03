@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <a href="{{ route('info') }}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                     <img src="{{ asset('assets/info.png') }}" alt="twbs" class="flex-shrink-0" width="32" height="32">
                     <div class="d-flex gap-2 w-100 justify-content-between">
                         <div>
