@@ -51,4 +51,16 @@ class UserController extends Controller {
 
         return view('messages', ['messages' => $messages]);
     }
+
+    public function search(Request $request) {
+        $query = $request->input('q');
+
+        if(str_contains($query, "*") && str_ends_with($query, "*")) {
+            $query = str_replace("*", "%", $query);
+        }
+
+        $users = User::whereRaw("concat(name, ' ', surname) like '" .$query. "' ")->get();
+
+        return view('results', ['users' => $users]);
+    }
 }

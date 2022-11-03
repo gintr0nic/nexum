@@ -5,7 +5,7 @@
             Nexum
         </a>
 
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav ">
             @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}#features">Features</a>
@@ -42,6 +42,12 @@
                 @endcannot
             @endauth
         </ul>
+
+        <form class="d-flex" role="search" id="searchForm" action="{{ route('search') }}" method="GET">
+            <input class="form-control me-2" type="search" type="text" name="q" placeholder="Cerca utenti..." aria-label="Search" required>
+            <button id="buttonSearch" class="btn btn-outline-light mx-1" type="submit">Cerca</button>
+        </form>
+
 
         <div class="d-flex">
             <ul class="navbar-nav">

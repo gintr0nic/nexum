@@ -58,3 +58,6 @@ Route::post('blog/{blogname}/staffdeletepost/{postid}', 'StaffController@deleteP
 
 // Rotte per i messaggi
 Route::get('messages', 'UserController@getMessages')->name('messages');
+
+// Rotte per la ricerca
+Route::get('search', 'UserController@search')->name('search');

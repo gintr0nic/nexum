@@ -176,7 +176,6 @@ function removeFriend(username) {
     });
 }
 
-
 const alertPlaceholder = document.getElementById('alertPlaceholder')
 
 const alert = (message, type) => {
