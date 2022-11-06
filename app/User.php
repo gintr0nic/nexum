@@ -44,7 +44,9 @@ class User extends Authenticatable
     }
 
     public function getSignupDate() {
-        return Carbon::parse($this->created_at)->isoFormat('d-M-Y');
+        $date = Carbon::parse($this->attributes['created_at'])->isoFormat('DD-MM-YYYY');
+
+        return $date;
     }
 
     public function getBlogs() {
