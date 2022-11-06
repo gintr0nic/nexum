@@ -40,13 +40,16 @@
                         <a class="nav-link" href="{{ route('admin') }}">Pannello di amministrazione</a>
                     </li>
                 @endcannot
-            @endauth
         </ul>
 
-        <form class="d-flex" role="search" id="searchForm" action="{{ route('search') }}" method="GET">
-            <input class="form-control me-2" type="search" type="text" name="q" placeholder="Cerca utenti..." aria-label="Search" required>
-            <button id="buttonSearch" class="btn btn-outline-light mx-1" type="submit">Cerca</button>
-        </form>
+        @cannot('isStaff')
+            <form class="d-flex" role="search" id="searchForm" action="{{ route('search') }}" method="GET">
+                <input class="form-control me-2" type="search" type="text" name="q" placeholder="Cerca utenti..." aria-label="Search" required>
+                <button id="buttonSearch" class="btn btn-outline-light mx-1" type="submit">Cerca</button>
+            </form>
+        @endcannot
+
+        @endauth
 
 
         <div class="d-flex">

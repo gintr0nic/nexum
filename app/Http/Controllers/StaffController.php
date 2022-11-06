@@ -16,6 +16,10 @@ class StaffController extends Controller {
         $this->middleware('staff');
     }
 
+    public function index() {
+        return view('admin.admin');
+    }
+
     public function userList() {
         $users = User::where('role', 'user')->latest()->get();
 
