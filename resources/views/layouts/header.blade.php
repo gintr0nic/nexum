@@ -36,9 +36,19 @@
                 @endcannot
 
                 @can('isStaff')
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin') }}">Pannello di amministrazione</a>
-                    </li>
+                    @can('isAdmin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin') }}">Pannello di amministrazione</a>
+                        </li>
+                    @endcan
+                @endcannot
+
+                @cannot('isAdmin')
+                    @can('isStaff')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('staff') }}">Pannello di amministrazione</a>
+                        </li>
+                    @endcan
                 @endcannot
         </ul>
 

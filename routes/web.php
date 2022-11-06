@@ -51,6 +51,7 @@ Route::post('refuseFriendRequest', 'FriendsController@refuseFriendRequest')->nam
 
 // Rotte per l'amministrazione
 Route::get('admin', 'AdminController@index')->name('admin');
+Route::get('staff', 'StaffController@index')->name('staff');
 Route::get('userlist', 'StaffController@userList')->name('userlist');
 Route::get('bloglist', 'StaffController@blogList')->name('bloglist');
 Route::post('blog/{blogname}/deleteblog', 'StaffController@deleteBlog')->name('deleteBlog');
