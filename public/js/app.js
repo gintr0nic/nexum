@@ -176,6 +176,25 @@ function removeFriend(username) {
     });
 }
 
+function removeStaff(username) {
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        url: $('#buttonRemoveStaff').attr('url'),
+        type: 'POST',
+        dataType: 'json',
+        data: { username: username },
+        statusCode: {
+            200: function (response) {
+                //alert('Richiesta inviata!', 'success')
+                location.reload()
+            },
+            403: function (response) {
+                alert('Non sei autorizzato ad eseguire questa operazione!', 'danger')
+            }
+        }
+    });
+}
+
 const alertPlaceholder = document.getElementById('alertPlaceholder')
 
 const alert = (message, type) => {

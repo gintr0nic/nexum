@@ -89,7 +89,35 @@ class DatabaseSeeder extends Seeder
             'friends' => '', 
             'bio' => 'Ciao sono Nicola. Questa è la mia biografia.', 
             'password' => '$2y$10$w1f8NBUpq1fYTNb2M6PSNOUGqK3mCVsqy54OB7RbcgEPA8zZNjiSG'],
+
+            ['id' => 7, 'username' => 'staffbis', 
+            'name' => 'Franco', 
+            'surname' => 'Rossi',
+            'sex' => 'male',
+            'address' => 'Via dei Marsi 59',
+            'city' => 'San Nicandro Garganico',
+            'birthdate' => '2000-03-06',
+            'role' => 'staff', 
+            'private' => true, 
+            'friends' => '', 
+            'bio' => 'Ciao sono Giorgio. Questa è la mia biografia.', 
+            'password' => '$2y$10$w1f8NBUpq1fYTNb2M6PSNOUGqK3mCVsqy54OB7RbcgEPA8zZNjiSG'],
+
+            ['id' => 8, 'username' => 'staffter', 
+            'name' => 'Ugo', 
+            'surname' => 'Rossi',
+            'sex' => 'male',
+            'address' => 'Via dei Marsi 59',
+            'city' => 'San Nicandro Garganico',
+            'birthdate' => '2000-03-06',
+            'role' => 'staff', 
+            'private' => true, 
+            'friends' => '', 
+            'bio' => 'Ciao sono Giorgio. Questa è la mia biografia.', 
+            'password' => '$2y$10$w1f8NBUpq1fYTNb2M6PSNOUGqK3mCVsqy54OB7RbcgEPA8zZNjiSG'],
         ]);
+
+        
 
         DB::table('blogs')->insert([
             ['id' => 1, 'blogname' => 'tennis', 

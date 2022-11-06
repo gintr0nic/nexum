@@ -26,6 +26,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 //Rotte per la registrazione
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+Route::post('registerStaff', 'AdminController@registerStaff')->name('registerStaff');
 
 //Rotte per il profilo
 Route::get('user/{username}', 'UserController@index')->name('user');
@@ -56,6 +57,9 @@ Route::get('userlist', 'StaffController@userList')->name('userlist');
 Route::get('bloglist', 'StaffController@blogList')->name('bloglist');
 Route::post('blog/{blogname}/deleteblog', 'StaffController@deleteBlog')->name('deleteBlog');
 Route::post('blog/{blogname}/staffdeletepost/{postid}', 'StaffController@deletePost')->name('staffDeletePost');
+
+Route::get('managestaff', 'AdminController@manageStaff')->name('managestaff');
+Route::post('removeStaff', 'AdminController@removeStaff')->name('removeStaff');
 
 Route::get('info', 'AdminController@info')->name('info');
 Route::get('user/{username}/friendlist', 'AdminController@friendList')->name('friendlist');
